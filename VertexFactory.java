@@ -20,28 +20,14 @@
 * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-import java.util.Comparator;
 
-public class QueueComparator implements Comparator<Vertex>{
+public class VertexFactory implements org.apache.commons.collections15.Factory<Vertex> {
 
-    @Override
-    public int compare(Vertex v1, Vertex v2) {
-        if(v1.getDist()>v2.getDist()){
-            return 1;
-        }
-        else if(v1.getDist()<v2.getDist()){
-            return -1;
-        }
-        else{
-            if(v1.getName()>v2.getName()){
-                return 1;
-            }
-            else if(v1.getName()<v2.getName()){
-                return -1;
-            }
-            else{
-                return 0;
-            }
-        }
+    private int name = 1;
+    private Vertex prev = null;
+    private int dist = Integer.MAX_VALUE;
+
+    public Vertex create() {
+        return new Vertex(name++, prev, dist);
     }
 }

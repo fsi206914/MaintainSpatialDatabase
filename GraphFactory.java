@@ -20,28 +20,12 @@
 * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-import java.util.Comparator;
+import edu.uci.ics.jung.graph.UndirectedSparseGraph;
 
-public class QueueComparator implements Comparator<Vertex>{
+public class GraphFactory implements org.apache.commons.collections15.Factory<UndirectedSparseGraph<Vertex, Edge>> {
 
     @Override
-    public int compare(Vertex v1, Vertex v2) {
-        if(v1.getDist()>v2.getDist()){
-            return 1;
-        }
-        else if(v1.getDist()<v2.getDist()){
-            return -1;
-        }
-        else{
-            if(v1.getName()>v2.getName()){
-                return 1;
-            }
-            else if(v1.getName()<v2.getName()){
-                return -1;
-            }
-            else{
-                return 0;
-            }
-        }
+    public UndirectedSparseGraph<Vertex, Edge> create() {
+        return new UndirectedSparseGraph<Vertex, Edge>();
     }
 }

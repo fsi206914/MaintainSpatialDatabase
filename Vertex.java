@@ -20,8 +20,6 @@
 * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-package algorithm;
-
 
 public class Vertex{
 

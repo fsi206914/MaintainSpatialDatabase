@@ -20,28 +20,14 @@
 * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-import java.util.Comparator;
+import java.util.Random;
 
-public class QueueComparator implements Comparator<Vertex>{
+public class EdgeFactory implements org.apache.commons.collections15.Factory<Edge> {
 
-    @Override
-    public int compare(Vertex v1, Vertex v2) {
-        if(v1.getDist()>v2.getDist()){
-            return 1;
-        }
-        else if(v1.getDist()<v2.getDist()){
-            return -1;
-        }
-        else{
-            if(v1.getName()>v2.getName()){
-                return 1;
-            }
-            else if(v1.getName()<v2.getName()){
-                return -1;
-            }
-            else{
-                return 0;
-            }
-        }
+    private static final Random rnd = new Random();
+    private int name = 0;
+
+    public Edge create() {
+        return new Edge(name, rnd.nextInt(99) + 1);
     }
 }
